@@ -34,4 +34,4 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 80
 
-CMD php artisan migrate --force && php-fpm
+CMD php artisan key:generate --force && php artisan config:cache && php artisan route:cache && php artisan migrate --force && php-fpm
